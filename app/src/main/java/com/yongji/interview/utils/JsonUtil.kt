@@ -2,14 +2,13 @@ package com.yongji.interview.utils
 
 import android.content.Context
 import android.util.Log
-import com.squareup.moshi.*
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.yongji.interview.network.RouteData
-import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
-import retrofit2.converter.moshi.MoshiConverterFactory
-import java.io.InputStream
 
 object JsonUtil {
 
@@ -38,15 +37,6 @@ object JsonUtil {
 
         return jsonArray
     }
-
-//    @JsonClass(generateAdapter = true)
-//    data class JsonPodcast(
-//        val Name: String,
-//        val Description: String,
-//        val Artwork: String,
-//        val URL: String
-//    )
-
 
     private fun getJSONArray(txtJson: String): List<RouteData>{
 
