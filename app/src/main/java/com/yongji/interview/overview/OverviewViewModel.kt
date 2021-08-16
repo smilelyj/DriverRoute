@@ -10,10 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.yongji.interview.network.RouteData
 import com.yongji.interview.utils.JsonUtil.getRoutes
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 enum class ApiStatus { LOADING, ERROR, DONE }
 /**
@@ -55,7 +52,7 @@ class OverviewViewModel(application: Application) : AndroidViewModel(application
 
 
     public fun getAllRouteData(context: Context) {
-        coroutineScope.launch {
+        coroutineScope.async {
             // Get the Deferred object for our Retrofit request
 //            Log.e("yongjiLog", routeData.value.toString())
             val getRouteDataListDeferred = getRoutes(context)
